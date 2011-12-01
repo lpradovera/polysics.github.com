@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: About me
 ---
 
-All about me and my blog...
+Don't ask, don't tell!

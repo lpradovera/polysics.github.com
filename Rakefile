@@ -7,13 +7,11 @@ end
 
 desc 'Build site with Jekyll'
 task :build => :clean do
-  compass
   jekyll
 end
 
 desc 'Start server with --auto'
 task :server => :clean do
-  compass
   jekyll('--server --auto')
 end
 
@@ -60,6 +58,3 @@ def jekyll(opts = '')
   sh 'jekyll ' + opts
 end
 
-def compass(opts = '')
-  sh 'compass compile -c config.rb --force ' + opts
-end
