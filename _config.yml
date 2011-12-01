@@ -7,10 +7,10 @@ markdown: rdiscount
 
 # configuration required for some pages
 
-domain: pradovera.com
-title: Pradovera.com Blog
+domain: polysics.github.com
+title: I Me My Mine
 author: Luca Pradovera
-email: luca@pradovera.com
+email: lpradovera@mojolingo.com
 
 # configuration for ehancements, uncomment to enable
 
@@ -20,8 +20,8 @@ email: luca@pradovera.com
 # google_analytics:
 #   account: UA-XXXXX-X
 
-# github:
-#   username: ghusername
+github:
+  username: polysics
 
 # disqus:
 #   id: disqusid
