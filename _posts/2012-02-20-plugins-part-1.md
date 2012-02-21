@@ -149,6 +149,7 @@ A plugin is at its heart simply a Ruby gem, and bundled code needs to be loaded 
 The generated plugin has a single business logic file in lib/controller_methods.rb.
 Neither the file name nor the module name are mandatory, this is just normal Ruby code.
 
+#### Generated code
 Content is as follows:
 {% highlight ruby %}
 # lib/controller_methods.rb
@@ -164,30 +165,38 @@ module GreetPlugin
 end
 {% endhighlight %}
 The module is intended to be used as a mixin in call controllers.
-Usage can be seen in action in the generated test file, which also showcases how the call controller methods can be easily tested.
+
+It is also possible to provide a full CallController implementation that can be used out-of-the-box by your application.
+Ben Langfeld's excellent [blog post](http://mojolingo.com/blog/2012/adhearsion-2-call-controllers-routing/) explains how a CallController works and what you can do with it.
+
+#### Testing your code
+Module usage can be seen in action in the generated test file, which also showcases how the call controller methods can be easily tested.
 {% highlight ruby %}
 # spec/greet_plugin/controller_methods_spec.rb
 require 'spec_helper'
 
 module GreetPlugin
   describe Plugin do
-    class TestController < Adhearsion::CallController
-      include GreetPlugin::ControllerMethods # mixed in the controller
-    end
-
-    let(:mock_call) { stub_everything 'Call', :originating_voip_platform => :punchblock }
-    
-    subject do
-      TestController.new mock_call
-    end
-
-    describe "#greet" do
-      it "greets with the correct parameter" do
-        subject.expects(:play).once.with("Hello, Luca")
-        subject.greet "Luca"
+    describe "mixed in to a CallController" do
+      
+      class TestController < Adhearsion::CallController
+        include GreetPlugin::ControllerMethods
       end
-    end
 
+      let(:mock_call) { mock 'Call' }
+    
+      subject do
+        TestController.new mock_call
+      end
+
+      describe "#greet" do
+        it "greets with the correct parameter" do
+          subject.expects(:play).once.with("Hello, Luca")
+          subject.greet "Luca"
+        end
+      end
+    
+    end
   end
 end
 {% endhighlight %}
