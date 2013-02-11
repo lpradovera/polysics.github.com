@@ -1,81 +1,42 @@
-# Jekyll Template
+# Jekyll-Bootstrap
 
-This is a template project for jekyll that you can clone and customise to suit your needs.  Its quite opinionated in what it provides, the idea is to get you up and running with feed support, analytics and comments and feedback.  This is meant for a standalone blog, not for [github pages](http://pages.github.com/)
+The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
 
-Please don't fork otherwise I'll see lots of noise on the fork queue that are your customisation for your blog.  I suggest you create a repo on github (public or private, its up to you) and do the following assuming the new repo is available at `https://github.com/username/reponame`:
+## Usage
 
-    git clone https://github.com/krisb/jekyll-template.git mysite
-    cd mysite
-    rm -rf .git
-    git init
-    git add -A
-    git commit -m 'initial template based on https://github.com/krisb/jekyll-template'
-    git remote add origin git@github.com:username/reponame.git
-    git push -u origin master
+For all usage and documentation please see: <http://jekyllbootstrap.com>
 
-The following sections detail how to set up and use the template.  The commands are known to work on my macbook, YRMV.
+## Version
 
-## Ruby 1.9.2 via RVM
+0.2.13 - stable and versioned using [semantic versioning](http://semver.org/).
 
-I recommend that you install [rvm](http://rvm.beginrescueend.com/) and set everything up using that.  For single user install run the following:
+## Contributing 
 
-    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+This repository tracks 2 projects:
 
-Follow the instructions, adding the necessary lines in `.bashrc`, e.g.
+- **Jekyll-Bootstrap Framework.**  
+  The framework for which users should clone and build their blog on top of is available in the master branch.
+  
+  To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
+  This is very important as it allows me to accept your pull request without having to publish a public version release.
+  
+  Small, atomic Features, bugs, etc.   
+  Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.   
+  Please rebase as often as possible when working.   
+  Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
+  
+  For Big Features or major API extensions/edits:   
+  This is the one case where I'll accept pull-requests based off the master branch.
+  This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
+  Translation : it might take a bit longer so please be patient! (but sincerely thank you).
+ 
+- **Jekyll-Bootstrap Documentation Website.**    
+  The documentation website at <http://jekyllbootstrap.com> is maintained in the gh-pages branch.
+  Please fork and contribute documentation additions to this branch only.
 
-    # RVM
-    if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-      source "$HOME/.rvm/scripts/rvm"
-    fi
+The master and gh-pages branch do not share the same ancestry. Please treat them as completely separate git repositories!
 
-Now source `.bashrc` (you don't need to do this normally as it runs on login, it is just to update the current term window)
 
-    source ~/.bashrc
+## License
 
-You can then install and use ruby 1.9.2:
-
-    rvm install 1.9.2
-    rvm use 1.9.2
-
-## Gems
-
-Run the following to install the necessary gems:
-
-    gem install jekyll rdiscount compass
-
-## Markup
-
-I prefer markdown, but you can use a number of supported markup formats.
-
-## Pygments (code highlighting)
-
-Assuming you have python installed with `easy_install` available:
-
-    sudo easy_install Pygments
-
-## Stylesheets
-
-I recommend that you use [compass](http://compass-style.org/).  I've included `_sass/mixins/_syntax.scss` for the pygments syntax highlighting.
-
-## Rake deploy task
-
-The following tasks are available (use `rake -T` to list them):
-
-    rake build        # Build site with Jekyll
-    rake check_links  # Check links for site already running on localhost:4000
-    rake clean        # Clean up generated site
-    rake deploy       # Build and deploy
-    rake server       # Start server with --auto
-
-The deploy task is simplistic and uses rsync to copy the generated site to your server.  You will need to replace the username, servername and path as appropriate.
-
-## Configuration
-
-There are a number of values in `_config.yml` to customise your site.  Change as appropriate.
-
-The following enhancements are baked in and enabled if you provide the configuration required.
-
-* [Google Analytics](http://www.google.com/analytics) - web analytics using the [async](http://www.google.com/support/analytics/bin/answer.py?hl=en&answer=174090) script
-* [Disqus](http://disqus.com/) - comments and feedback
-* [Feedburner](http://feedburner.google.com/) - rss feeds
-* [Github Ribbon](https://github.com/blog/273-github-ribbons) - fork me on github ribbon
+[Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/)
